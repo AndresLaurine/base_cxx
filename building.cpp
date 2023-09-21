@@ -10,6 +10,7 @@ Building::Building() : id_(-1) {
 }
 
 Building::~Building() {
+
 	std::cout << "Destruction de Building(" << id_ <<") at " << this << std::endl;
 }
 
