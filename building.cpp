@@ -9,8 +9,11 @@ Building::Building() : id_(-1) {
         std::cout << "Building::Building() at " << this <<  std::endl;
 }
 
-Building::~Building() {
+Building::Building(const Building& rhs) : id_(rhs.id_) {
+	std::cout << "Building::Building(rhs = " << &rhs << " , id_" << rhs.id_ << ")  at " << this <<  std::endl;
+}
 
+Building::~Building() {
 	std::cout << "Destruction de Building(" << id_ <<") at " << this << std::endl;
 }
 
