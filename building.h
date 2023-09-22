@@ -1,6 +1,10 @@
+#ifndef BUILDING_
+#define BUILDING_
+#include "Storey.h"
+
 class Building{
 	public:
-		Building( int id );
+		Building( int id, int nb_floors);
 		Building();
 		Building (const Building& rhs);
 		~Building();
@@ -8,5 +12,8 @@ class Building{
 		Building& operator=( const Building& rhs);
 	private:
 		int id_;
+		Storey* storeys_;
+		int nb_storeys_;
 };
 
+#endif 

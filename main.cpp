@@ -1,5 +1,6 @@
 #include <iostream>
 #include "building.cpp"
+#include "storey.cpp"
 
 int main( int argc, char** argv) {
 	std::cout <<" Welcome to SimTown! Please enter street size" << std::endl;
@@ -13,18 +14,20 @@ int main( int argc, char** argv) {
 		street_adress[ib] = new Building( ib);
 	}
 
-	for (int i = 0; i < size; ++i) {
+	/*for (int i = 0; i < size; ++i) {
 		if (street_adress[i] != nullptr) {
 			street_adress[i]->print(std::cout);
 		}
-	}
+	}*/
 
 	Building* street = new Building[size];
 	for (int ib = 0; ib < size ; ++ ib) {
+		std::cout << "0" << std::endl;
                 street[ib] =  *(street_adress[ib]);
-		street[ib].print(std::cout);
+		std::cout << "1" << std::endl;
+		//street[ib].print(std::cout);
         }
-	
+	std::cout << "Prout" << std::endl;	
 	//Resize array.
 	{
 	Building* bigger_street = new Building[size+1];
