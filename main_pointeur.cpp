@@ -24,22 +24,21 @@ int main( int argc, char** argv) {
         for (int ib = 0; ib < size ; ++ ib) {
                 bigger_street_adress[ib] = street_adress[ib];
         }
-        for (int i=0 ; i < size; ++i) {
-        	delete street_adress[i];
-        }
+        //for (int i=0 ; i < size; ++i) {
+        //	delete street_adress[i];
+        //}
+	delete[] street_adress;
 
         size += 1;
         street_adress = bigger_street_adress;
-	delete[] bigger_street_adress;
+	//delete[] bigger_street_adress;
         }
 	
         Building* city_hall_adress = new Building(1000);
         street_adress[size-1] = city_hall_adress;
 
-	std::cout << "prout" << std::endl;
-        for (int i=0 ; i < size; ++i) {
-		std::cout << "prout" << i << std::endl;
-                delete street_adress[i];
+	for (int i=0 ; i < size; ++i) {
+		delete street_adress[i];
         }
 
         delete[] street_adress;
