@@ -1,6 +1,7 @@
 #ifndef BUILDING_
 #define BUILDING_
 #include "Storey.h"
+#include <cstdlib>
 
 class Building{
 	public:

@@ -2,7 +2,7 @@
 #include "building.h"
 #include <cstdlib>
 
-Building::Building(int id, int nb_floors=rand() % 5) : id_(id), storeys_(nullptr), nb_storeys_(nb_floors) {
+Building::Building(int id, int nb_floors= rand() % 5 ) : id_(id), storeys_(nullptr), nb_storeys_(nb_floors) {
 	//std::cout << "Creation Building(" << id << ") at " << this <<  std::endl;
 	storeys_ = new Storey[nb_storeys_];
 	/*for (int i = 0; i < nb_storeys_; ++ i) {
@@ -43,9 +43,21 @@ void Building::print( std::ostream& out) const {
 			std::cout <<" |  |_|    |_|   | |" << std::endl;
 			std::cout <<" |               | |" << std::endl;
 		}
-		std::cout <<" |  _    _       | |" << std::endl;
-		std::cout <<" | |_|  | |"<< id_ <<"     | /" << std::endl;
-		std::cout <<" |______| |______|/ " << std::endl;
+		if (id_ < 10 && id_ > -1) {
+			std::cout <<" |  _    _       | |" << std::endl;
+			std::cout <<" | |_|  | |"<< id_ <<"     | /" << std::endl;
+			std::cout <<" |______| |______|/ " << std::endl;
+		}
+		if ((id_ < 100 && id_ > 9) || (id_ < 0 && id_ > -10 )) {
+                	std::cout <<" |  _    _       | |" << std::endl;
+                	std::cout <<" | |_|  | |"<< id_ <<"    | /" << std::endl;
+                	std::cout <<" |______| |______|/ " << std::endl;
+                }
+		if ((id_ < 1000 && id_ > 99) || (id_ < -9 && id_ > -100 )) {
+                        std::cout <<" |  _    _       | |" << std::endl;
+                        std::cout <<" | |_|  | |"<< id_ <<"   | /" << std::endl;
+                        std::cout <<" |______| |______|/ " << std::endl;
+                }
 	}
 
 	else {

@@ -8,8 +8,10 @@ public:
  
   int size() const;
   T& push_back( const T& elt );
+  T& operator[]( int index ) ;
   const T& operator[]( int index ) const;
 private:
+  void grow();
   int capacity_;
   int size_;
   T* items_;
