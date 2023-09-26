@@ -22,12 +22,11 @@ int main( int argc, char** argv) {
 
 	Building* street = new Building[size];
 	for (int ib = 0; ib < size ; ++ ib) {
-		std::cout << "0" << std::endl;
+		
                 street[ib] =  *(street_adress[ib]);
-		std::cout << "1" << std::endl;
-		//street[ib].print(std::cout);
+		street[ib].print(std::cout);
         }
-	std::cout << "Prout" << std::endl;	
+		
 	//Resize array.
 	{
 	Building* bigger_street = new Building[size+1];
@@ -38,10 +37,11 @@ int main( int argc, char** argv) {
 	size += 1;
 	street = bigger_street;
 	}
-
-	Building city_hall(1000);
-	street[size-1] = Building(city_hall);
 	
+	Building city_hall(1000);
+	city_hall.ajoute_etage();
+	street[size-1] = Building(city_hall);
+	city_hall.print(std::cout);	
 
 	for (int i=0 ; i < size-1; ++i) {
 		delete street_adress[i];

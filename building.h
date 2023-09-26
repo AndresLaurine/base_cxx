@@ -15,6 +15,7 @@ class Building{
 		int id_;
 		Storey* storeys_;
 		int nb_storeys_;
+		void clone_storey(Storey* from, Storey* to); // Copie nb_storeys_
 };
 
 #endif 
