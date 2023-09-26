@@ -32,6 +32,20 @@ void Building::print( std::ostream& out) const {
 	out << "Building " << id_ << " at " << this << std::endl;
 }
 
+void Building::ajoute_etage() {
+	nb_storeys_ += 1;
+	n_storeys = new Storey[nb_storeys_];
+	for (int ifloor = 0; ifloor < nb_storeys_-1; ++ifloor) {
+		new_storeys[ifloor] = storeys_[ifloor];
+	}
+	delete[] storeys_;
+	storeys_ = new Storey[nb_storeys_];
+	storeys_ = n_storeys;
+	delete[] n_storeys;
+	//storeys_[nb_storeys-1] = Storey()
+	}
+}
+
 Building& Building::operator=(const Building& rhs) {
 	id_=rhs.id_;
 	nb_storeys_ = rhs.nb_storeys_;

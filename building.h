@@ -9,6 +9,7 @@ class Building{
 		Building (const Building& rhs);
 		~Building();
 		void print(std::ostream& out) const ;
+		void ajoute_etage();
 		Building& operator=( const Building& rhs);
 	private:
 		int id_;
