@@ -11,6 +11,7 @@ class Building{
 		~Building();
 		void print(std::ostream& out) const ;
 		void ajoute_etage();
+		virtual void const leasing()=0;
 		Building& operator=( const Building& rhs);
 	private:
 		int id_;

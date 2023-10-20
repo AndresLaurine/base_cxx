@@ -1,17 +1,29 @@
 #include <iostream>
 #include "building.cpp"
 #include "storey.cpp"
+#include "house.cpp"
+#include "flat.cpp"
 
 int main( int argc, char** argv) {
 	std::cout <<" Welcome to SimTown! Please enter street size" << std::endl;
 	int size = 0;
 	std::cin >> size;
 	std::cout << size << std::endl;
+	std::cout << "How many houses in the street ? " << std::endl;
+	int nb_houses = 0;
+	std::cin >> nb_houses;
 	Building** street_adress = new Building*[size];
 	std::cout << "Street adress = " << street_adress << std::endl;
 
 	for (int ib = 0; ib < size ; ++ ib) {
-		street_adress[ib] = new Building( ib);
+		if (ib < nb_houses) {
+			street_adress[ib] = new House(ib, 3);
+			std::cout << ib << std::endl;
+		}
+		else {
+			street_adress[ib] = new Flat(ib, 1);
+			std::cout << ib << std::endl;
+		}
 	}
 
 	/*for (int i = 0; i < size; ++i) {
@@ -20,13 +32,12 @@ int main( int argc, char** argv) {
 		}
 	}*/
 
-	Building* street = new Building[size];
 	for (int ib = 0; ib < size ; ++ ib) {
+		std::cout << ib << " " << street_adress[ib] << std::endl;
 		
-                street[ib] =  *(street_adress[ib]);
-		street[ib].print(std::cout);
+		street_adress[ib]->leasing();
         }
-		
+	/*	
 	//Resize array.
 	{
 	Building* bigger_street = new Building[size+1];
@@ -43,10 +54,12 @@ int main( int argc, char** argv) {
 	street[size-1] = Building(city_hall);
 	city_hall.print(std::cout);	
 
-	for (int i=0 ; i < size-1; ++i) {
+	*/
+
+	for (int i=0 ; i < size; ++i) {
 		delete street_adress[i];
-	}
-	delete[] street;
+	};
+
 	delete[] street_adress;
 	std::cout << "Done" << std::endl;
 	return 0; // Normal termination

@@ -112,3 +112,4 @@ void Building::clone_storey(Storey* from, Storey* to) {
         }
 }
 
+
